@@ -10,7 +10,7 @@ func RegisterWorkspaceRoutes(router *gin.RouterGroup, workspaceHandler *handlers
 	w.POST("/create", workspaceHandler.CreateWorkspace)
 	w.DELETE("/:id", workspaceHandler.DeleteWorkspace)
 	w.PUT("/:id", workspaceHandler.UpdateWorkspace)
-	w.GET("/:id", workspaceHandler.GetWorkspace)
+	w.GET("/:id", workspaceHandler.GetWorkspaceByID)
 	w.GET("/", workspaceHandler.GetWorkspaces)
 	w.POST("/add-user", workspaceHandler.AddUserToWorkspace)
 }

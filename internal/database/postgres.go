@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/phuongtran6575/Taskflow-Go.git/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -15,14 +16,28 @@ var DB *gorm.DB
 
 // ConnectDB initializes the PostgreSQL connection using DNS from environment variables
 func ConnectDB() (*gorm.DB, error) {
+	// Load .env file
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file found, using system environment variables")
+	}
+
+	host := os.Getenv("DB_HOST")
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	dbname := os.Getenv("DB_NAME")
+	port := os.Getenv("DB_PORT")
+	sslmode := os.Getenv("DB_SSLMODE")
+	timezone := os.Getenv("DB_TIMEZONE")
+
+	if sslmode == "" {
+		sslmode = "disable"
+	}
+	if timezone == "" {
+		timezone = "UTC"
+	}
+
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_NAME"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_SSLMODE"),
-		os.Getenv("DB_TIMEZONE"),
+		host, user, password, dbname, port, sslmode, timezone,
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{

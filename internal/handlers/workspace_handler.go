@@ -21,8 +21,9 @@ func (w *WorkspaceHandler) AddUserToWorkspace(c *gin.Context) {
 func (w *WorkspaceHandler) GetWorkspaces(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "GetWorkspaces"})
 }
-func (w *WorkspaceHandler) GetWorkspace(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "GetWorkspace"})
+func (w *WorkspaceHandler) GetWorkspaceByID(c *gin.Context) {
+	id := c.Param("id")
+	c.JSON(http.StatusOK, gin.H{"message": "GetWorkspace", "id": id})
 }
 func (w *WorkspaceHandler) DeleteWorkspace(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "DeleteWorkspace"})
