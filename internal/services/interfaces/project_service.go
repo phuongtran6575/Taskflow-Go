@@ -5,7 +5,7 @@ import (
 	"github.com/phuongtran6575/Taskflow-Go.git/internal/models"
 )
 
-type ProjectRepository interface {
+type ProjectService interface {
 	Create(project *models.Project) error
 	Update(project *models.Project) error
 	Delete(project *models.Project) error

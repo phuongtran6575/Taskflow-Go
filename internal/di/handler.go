@@ -2,13 +2,13 @@ package di
 
 import "github.com/phuongtran6575/Taskflow-Go.git/internal/handlers"
 
-type handler struct {
+type Handler struct {
 	authHandler      *handlers.AuthHandler
 	workspaceHandler *handlers.WorkspaceHandler
 }
 
-func NewHandler(s *Service) *handler {
-	return &handler{
+func NewHandler(s *Service) *Handler {
+	return &Handler{
 		authHandler:      handlers.NewAuthHandler(s.authService),
 		workspaceHandler: handlers.NewWorkspaceHandler(s.workspaceService),
 	}

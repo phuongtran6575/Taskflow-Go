@@ -9,6 +9,6 @@ type WorkspaceService interface {
 	Create(workspace *models.Workspace) error
 	Update(workspace *models.Workspace) error
 	Delete(workspace *models.Workspace) error
-	FindByID(id uuid.UUID) (*models.Workspace, error)
-	FindAll() ([]models.Workspace, error)
+	GetByID(id uuid.UUID) (*models.Workspace, error)
+	GetAll() ([]models.Workspace, error)
 }

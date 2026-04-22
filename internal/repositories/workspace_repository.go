@@ -27,10 +27,10 @@ func (r *workspaceRepository) Delete(workspace *models.Workspace) error {
 	return nil
 }
 
-func (r *workspaceRepository) FindByID(id uuid.UUID) (*models.Workspace, error) {
+func (r *workspaceRepository) GetByID(id uuid.UUID) (*models.Workspace, error) {
 	return nil, nil
 }
 
-func (r *workspaceRepository) FindAll() ([]models.Workspace, error) {
+func (r *workspaceRepository) GetAll() ([]models.Workspace, error) {
 	return nil, nil
 }
