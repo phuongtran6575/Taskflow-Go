@@ -12,5 +12,4 @@ type WorkspaceMemberRepository interface {
 	FindByWorkspaceIDAndUserID(workspaceID, userID uuid.UUID) (*models.WorkspaceMember, error)
 	Update(member *models.WorkspaceMember) error
 	Delete(member *models.WorkspaceMember) error
-	DeleteByWorkspaceIDAndUserID(workspaceID, userID uuid.UUID) error
 }
