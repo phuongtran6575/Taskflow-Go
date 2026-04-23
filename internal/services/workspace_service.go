@@ -3,7 +3,7 @@ package services
 import (
 	"github.com/google/uuid"
 	"github.com/phuongtran6575/Taskflow-Go.git/internal/models"
-	repoInterfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces"
+	repoInterfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces/user"
 	serviceInterfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/services/interfaces"
 )
 

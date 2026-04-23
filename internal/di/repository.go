@@ -1,8 +1,8 @@
 package di
 
 import (
-	"github.com/phuongtran6575/Taskflow-Go.git/internal/repositories"
-	"github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces"
+	interfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces/user"
+	repositories "github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/user"
 	"gorm.io/gorm"
 )
 

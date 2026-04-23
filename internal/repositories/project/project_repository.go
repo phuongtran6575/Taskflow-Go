@@ -3,7 +3,7 @@ package repositories
 import (
 	"github.com/google/uuid"
 	"github.com/phuongtran6575/Taskflow-Go.git/internal/models"
-	"github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces"
+	interfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces/project"
 	"gorm.io/gorm"
 )
 
