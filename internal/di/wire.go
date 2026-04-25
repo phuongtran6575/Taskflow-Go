@@ -14,6 +14,7 @@ func SetupDI(db *gorm.DB) *gin.Engine {
 	router := router.NewRouter(
 		handlers.authHandler,
 		handlers.workspaceHandler,
+		handlers.userHandler,
 	)
 	return router.RegisterRoutes()
 }

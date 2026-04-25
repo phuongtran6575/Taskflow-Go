@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/phuongtran6575/Taskflow-Go.git/internal/dto"
 	"github.com/phuongtran6575/Taskflow-Go.git/internal/services/interfaces"
 )
 
@@ -32,5 +33,10 @@ func (w *WorkspaceHandler) UpdateWorkspace(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "UpdateWorkspace"})
 }
 func (w *WorkspaceHandler) CreateWorkspace(c *gin.Context) {
+	var createWorkspaceDTO dto.CreateWorkspaceDTO
+	if err := c.ShouldBindJSON(&createWorkspaceDTO); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid input"})
+		return
+	}
 	c.JSON(http.StatusOK, gin.H{"message": "CreateWorkspace"})
 }

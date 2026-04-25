@@ -8,12 +8,14 @@ import (
 type Router struct {
 	authHandler      *handlers.AuthHandler
 	workspaceHandler *handlers.WorkspaceHandler
+	userHandler      *handlers.UserHandler
 }
 
-func NewRouter(authHandler *handlers.AuthHandler, workspaceHandler *handlers.WorkspaceHandler) *Router {
+func NewRouter(authHandler *handlers.AuthHandler, workspaceHandler *handlers.WorkspaceHandler, userHandler *handlers.UserHandler) *Router {
 	return &Router{
 		authHandler:      authHandler,
 		workspaceHandler: workspaceHandler,
+		userHandler:      userHandler,
 	}
 }
 

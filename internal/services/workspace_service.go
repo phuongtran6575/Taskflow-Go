@@ -2,6 +2,8 @@ package services
 
 import (
 	"github.com/google/uuid"
+	"github.com/phuongtran6575/Taskflow-Go.git/internal/dto"
+	"github.com/phuongtran6575/Taskflow-Go.git/internal/mapper"
 	"github.com/phuongtran6575/Taskflow-Go.git/internal/models"
 	repoInterfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/repositories/interfaces/user"
 	serviceInterfaces "github.com/phuongtran6575/Taskflow-Go.git/internal/services/interfaces"
@@ -15,16 +17,18 @@ func NewWorkspaceService(workspaceRepository repoInterfaces.WorkspaceRepository)
 	return &workspaceService{workspaceRepository: workspaceRepository}
 }
 
-func (s *workspaceService) Create(workspace *models.Workspace) error {
+func (s *workspaceService) Create(workspaceDTO *dto.CreateWorkspaceDTO) error {
+	workspace := mapper.ToWorkspaceFromCreateWorkspaceDTO(workspaceDTO)
 	return s.workspaceRepository.Create(workspace)
 }
 
-func (s *workspaceService) Update(workspace *models.Workspace) error {
+func (s *workspaceService) Update(workspaceDTO *dto.UpdateWorkspaceDTO) error {
+	workspace := mapper.ToWorkspaceFromUpdateWorkspaceDTO(workspaceDTO)
 	return s.workspaceRepository.Update(workspace)
 }
 
-func (s *workspaceService) Delete(workspace *models.Workspace) error {
-	return s.workspaceRepository.Delete(workspace)
+func (s *workspaceService) Delete(workspaceID uuid.UUID) error {
+	return s.workspaceRepository.Delete(workspaceID)
 }
 
 func (s *workspaceService) GetByID(id uuid.UUID) (*models.Workspace, error) {

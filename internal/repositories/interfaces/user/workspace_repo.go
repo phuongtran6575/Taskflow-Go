@@ -8,7 +8,7 @@ import (
 type WorkspaceRepository interface {
 	Create(workspace *models.Workspace) error
 	Update(workspace *models.Workspace) error
-	Delete(workspace *models.Workspace) error
+	Delete(workspaceID uuid.UUID) error
 	GetByID(id uuid.UUID) (*models.Workspace, error)
 	GetAll() ([]models.Workspace, error)
 }

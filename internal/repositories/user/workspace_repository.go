@@ -23,7 +23,7 @@ func (r *workspaceRepository) Update(workspace *models.Workspace) error {
 	return nil
 }
 
-func (r *workspaceRepository) Delete(workspace *models.Workspace) error {
+func (r *workspaceRepository) Delete(workspaceID uuid.UUID) error {
 	return nil
 }
 

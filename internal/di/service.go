@@ -8,11 +8,13 @@ import (
 type Service struct {
 	authService      interfaces.AuthService
 	workspaceService interfaces.WorkspaceService
+	userService      interfaces.UserService
 }
 
 func NewService(repo *Repository) *Service {
 	return &Service{
-		authService:      services.NewAuthService(),
+		authService:      services.NewAuthService(repo.userRepo),
 		workspaceService: services.NewWorkspaceService(repo.workspaceRepo),
+		userService:      services.NewUserService(repo.userRepo),
 	}
 }
